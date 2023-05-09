@@ -19,21 +19,19 @@
     let
         pkgs-unstable-x64-linux = nixpkgs-unstable.legacyPackages."x86_64-linux";
         pkgs-unstable-x64-darwin = nixpkgs-unstable.legacyPackages."x86_64-darwin";
-        # pkgs-unstable-aarch64-linux = nixpkgs-unstable.legacyPackages."aarch64-linux";
         pkgs-unstable-aarch64-darwin = nixpkgs-unstable.legacyPackages."aarch64-darwin";
 
         pkgs-x64-linux = nixpkgs.legacyPackages."x86_64-linux";
         pkgs-x64-darwin = nixpkgs.legacyPackages."x86_64-darwin";
-        # pkgs--aarch64-linux = nixpkgs-.legacyPackages."aarch64-linux";
         pkgs-aarch64-darwin = nixpkgs.legacyPackages."aarch64-darwin";
     in
     {
         homeConfigurations = {
-            "raphael.leroy" = home-manager.lib.homeManagerConfiguration {
+            "pie" = home-manager.lib.homeManagerConfiguration {
                 pkgs = pkgs-x64-linux;
                 modules = [ ./home/raphael.leroy ];
             };
-            "shin" = home-manager-unstable.lib.homeManagerConfiguration {
+            "wsl" = home-manager-unstable.lib.homeManagerConfiguration {
                 pkgs = pkgs-unstable-x64-linux;
                 modules = [ ./home/shin ];
             };

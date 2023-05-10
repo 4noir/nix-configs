@@ -9,7 +9,7 @@
 
 
   home.packages = with pkgs; [
-    cascadia-cove
+    cascadia-code
     btop
     neovim
   ];

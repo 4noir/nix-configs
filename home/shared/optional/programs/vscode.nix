@@ -7,7 +7,7 @@
       "workbench.colorTheme" = "Atom One Dark";
       "terminal.integrated.defaultProfile.linux" = "zsh";
       "terminal.integrated.defaultProfile.osx" = "zsh";
-
+      "terminal.integrated.gpuAcceleration" = "off";
     };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix

@@ -7,7 +7,7 @@
       "workbench.colorTheme" = "Atom One Dark";
       "terminal.integrated.defaultProfile.linux" = "zsh";
       "terminal.integrated.defaultProfile.osx" = "zsh";
-      "terminal.integrated.fontFamily" = "Cascadia Code",
+      "terminal.integrated.fontFamily" = "Cascadia Code";
     };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix

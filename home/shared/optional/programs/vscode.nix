@@ -5,6 +5,9 @@
     userSettings = {
       "workbench.productIconTheme" = "material-product-icons";
       "workbench.colorTheme" = "Atom One Dark";
+      "terminal.integrated.defaultProfile.linux" = "zsh";
+      "terminal.integrated.defaultProfile.osx" = "zsh";
+
     };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix

@@ -7,8 +7,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
+
   home.packages = with pkgs; [
+    cascadia-cove
     btop
     neovim
   ];
+
+  fonts.fontconfig.enable = true;
 }

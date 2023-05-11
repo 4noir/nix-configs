@@ -10,12 +10,12 @@
         home-manager-unstable.url = "github:nix-community/home-manager";
         home-manager-unstable.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
-        nix-darwin.url = "github:LnL7/nix-darwin";
-        nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+        darwin.url = "github:LnL7/nix-darwin";
+        darwin.inputs.nixpkgs.follows = "nixpkgs";
 
         futils.url = "github:numtide/flake-utils";
     };
-    outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, home-manager-unstable, ...}:
+    outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, home-manager-unstable, darwin, ...}:
     let
         pkgs-unstable-x64-linux = nixpkgs-unstable.legacyPackages."x86_64-linux";
         pkgs-unstable-x64-darwin = nixpkgs-unstable.legacyPackages."x86_64-darwin";
@@ -36,5 +36,11 @@
                 modules = [ ./home/shin ];
             };
         };
+        darwinConfigurations."MARC" = darwin.lib.darwinSystem {
+            pkgs = pkgs-unstable-aarch64-darwin;
+            modules = [ ./hosts/macbook-air ];
+            system = "aarch64-darwin";
+        };
+        darwinPackages = self.darwinConfigurations."MARC".pkgs;
     };
 }

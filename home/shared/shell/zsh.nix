@@ -8,5 +8,8 @@
     sessionVariables = {
       EDITOR = "nvim";
     };
+    envExtra = ''
+    . "$HOME/.cargo/env"
+    '';
   };
 }

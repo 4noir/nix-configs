@@ -11,11 +11,11 @@
         home-manager-unstable.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
         darwin.url = "github:LnL7/nix-darwin";
-        darwin.inputs.nixpkgs.follows = "nixpkgs";
+        darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
         futils.url = "github:numtide/flake-utils";
     };
-    outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, home-manager-unstable, darwin, ...}:
+    outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, home-manager-unstable, darwin, darwin, ...}:
     let
         pkgs-unstable-x64-linux = nixpkgs-unstable.legacyPackages."x86_64-linux";
         pkgs-unstable-x64-darwin = nixpkgs-unstable.legacyPackages."x86_64-darwin";
@@ -27,19 +27,26 @@
     in
     {
         homeConfigurations = {
-            "pie" = home-manager.lib.homeManagerConfiguration {
+            "raphael.leroy@PIE" = home-manager.lib.homeManagerConfiguration {
                 pkgs = pkgs-x64-linux;
-                modules = [ ./home/raphael.leroy ];
+                modules = [ ./home/raphael.leroy-PIE ];
             };
-            "wsl" = home-manager-unstable.lib.homeManagerConfiguration {
+            "shin@GARDEN" = home-manager-unstable.lib.homeManagerConfiguration {
                 pkgs = pkgs-unstable-x64-linux;
-                modules = [ ./home/shin ];
+                modules = [ ./home/shin-GARDEN ];
             };
         };
         darwinConfigurations."MARC" = darwin.lib.darwinSystem {
-            pkgs = pkgs-unstable-aarch64-darwin;
-            modules = [ ./hosts/macbook-air ];
             system = "aarch64-darwin";
+            modules = [
+                ./hosts/macbook-air
+                home-manager-unstable.darwinModules.home-manager
+                {
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.users.shinwoir = import ./home/shinwoir-MARC ;
+                }
+            ];
         };
         darwinPackages = self.darwinConfigurations."MARC".pkgs;
     };

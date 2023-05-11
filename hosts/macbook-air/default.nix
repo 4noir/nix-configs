@@ -1,27 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../shared
+  ];
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs;
-    [ vim
-      gnupg
-      (vscode-with-extensions.override {
-        vscodeExtensions = with vscode-extensions; [
-          vscodevim.vim
-          jdinhlife.gruvbox
-          pkief.material-product-icons
-          jnoortheen.nix-ide
-          dbaeumer.vscode-eslint
-        ] ++ vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "vscode-jest";
-            publisher = "Orta";
-            version = "5.2.3";
-            sha256 = "sha256-cPHwBO7dI44BZJwTPtLR7bfdBcLjaEcyLVvl2Qq+BgE=";
-          }
-        ];
-      })
+    [ 
     ];
 
   # Use a custom configuration.nix location.
@@ -43,11 +29,8 @@
     enable = true;
     onActivation.autoUpdate = true;
     brews = [
-      "yubikey-personalization"
       "hopenpgp-tools"
-      "ykman"
       "pinentry-mac"
-      "wget"
     ];
   };
 }

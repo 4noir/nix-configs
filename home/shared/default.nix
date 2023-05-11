@@ -12,6 +12,7 @@
     cascadia-code
     btop
     neovim
+    bat
   ];
 
   fonts.fontconfig.enable = true;

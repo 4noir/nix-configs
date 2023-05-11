@@ -8,6 +8,7 @@
       "terminal.integrated.defaultProfile.linux" = "zsh";
       "terminal.integrated.defaultProfile.osx" = "zsh";
       "terminal.integrated.fontFamily" = "Cascadia Code";
+      "update.mode" = "manual";
     };
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix

@@ -15,7 +15,7 @@
 
         futils.url = "github:numtide/flake-utils";
     };
-    outputs = { self, nixpkgs, nixpkgs-unstable, nix-darwin, home-manager, home-manager-unstable, darwin, darwin, ...}:
+    outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, home-manager-unstable, darwin, ...}:
     let
         pkgs-unstable-x64-linux = nixpkgs-unstable.legacyPackages."x86_64-linux";
         pkgs-unstable-x64-darwin = nixpkgs-unstable.legacyPackages."x86_64-darwin";
@@ -45,6 +45,7 @@
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
                     home-manager.users.shinwoir = import ./home/shinwoir-MARC ;
+                    home-manager.extraSpecialArgs = {system = "aarch64-darwin";};
                 }
             ];
         };

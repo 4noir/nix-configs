@@ -6,7 +6,7 @@
       theme = "bira";
     };
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "vim";
     };
     envExtra = ''
     . "$HOME/.cargo/env"

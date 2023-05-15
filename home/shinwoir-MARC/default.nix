@@ -5,11 +5,13 @@
     ../shared/default.nix
     ../shared/optional/programs/vscode.nix
     ../shared/optional/programs/alacritty.nix
+    ../../hm-modules/yubikey.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "shinwoir";
   home.homeDirectory = lib.mkForce "/Users/shinwoir/";
+  security.yubikey.enable = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

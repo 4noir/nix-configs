@@ -27,9 +27,9 @@
     in
     {
         homeConfigurations = {
-            "raphael.leroy@PIE" = home-manager.lib.homeManagerConfiguration {
+            "rleroy@PIE" = home-manager.lib.homeManagerConfiguration {
                 pkgs = pkgs-x64-linux;
-                modules = [ ./home/raphael.leroy-PIE ];
+                modules = [ ./home/raphael.leroy-pie ];
             };
             "shin@GARDEN" = home-manager-unstable.lib.homeManagerConfiguration {
                 pkgs = pkgs-unstable-x64-linux;

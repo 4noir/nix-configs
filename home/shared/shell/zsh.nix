@@ -8,8 +8,8 @@
     sessionVariables = {
       EDITOR = "vim";
     };
-    envExtra = ''
-    . "$HOME/.cargo/env"
-    '';
+    # envExtra = ''
+    # . "$HOME/.cargo/env"
+    # '';
   };
 }

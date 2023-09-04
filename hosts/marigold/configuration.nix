@@ -58,6 +58,15 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # dwm
+  services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
+    src = builtins.fetchGit {
+      url = "git@github.com:4noir/dwm.git";
+      ref = "master";
+      rev = "745b066dc85cc23952e29123f68d875dcda0442f";
+    };
+  };
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";

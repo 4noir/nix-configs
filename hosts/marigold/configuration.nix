@@ -59,10 +59,11 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # dwm
+  services.xserver.windowManager.dwm.enable = true;
   services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
     src = builtins.fetchGit {
-      url = "git@github.com:4noir/dwm.git";
-      ref = "master";
+      url = "https://github.com/4noir/dwm.git";
+      ref = "main";
       rev = "745b066dc85cc23952e29123f68d875dcda0442f";
     };
   };

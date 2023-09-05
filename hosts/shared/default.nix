@@ -2,3 +2,4 @@
 {
     nixpkgs.config.allowUnfree = true;
 }
+    

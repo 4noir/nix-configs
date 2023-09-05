@@ -1,7 +1,8 @@
 {pkgs, ...}:
 {
-  home.packages = with pkgs; [
-    rofi
-    picom
+  imports = [
+    ./picom.nix
+    ./dwm.nix
+    ./rofi.nix
   ];
 }

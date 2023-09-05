@@ -6,7 +6,7 @@
         TERM = "xterm-256color";
       };
       font = {
-        size = 13;
+        size = 11;
       };
 
       shell = {

@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./touchpad.nix
     ];
 
   # Bootloader.
@@ -58,16 +59,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # dwm
-  services.xserver.windowManager.dwm.enable = true;
-  services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
-    src = builtins.fetchGit {
-      url = "https://github.com/4noir/dwm.git";
-      ref = "main";
-      rev = "745b066dc85cc23952e29123f68d875dcda0442f";
-    };
-  };
-
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -116,8 +107,6 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 	vim
-	slack
-	
   #  wget
   ];
 

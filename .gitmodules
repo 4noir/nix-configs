@@ -1,3 +1,0 @@
-[submodule "packages/dwm"]
-	path = packages/dwm
-	url = git@github.com:4noir/dwm.git

@@ -63,7 +63,6 @@
   services.xserver.windowManager.dwm.enable = true;
   services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
     src = ../../packages/dwm;
-    sourceRoot = "..";
   };
 
   # Configure keymap in X11

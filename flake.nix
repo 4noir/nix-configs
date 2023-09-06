@@ -66,6 +66,7 @@
                         home-manager.users.raph = import ./home/raph;
                         home-manager.extraSpecialArgs = {system = "x86_64-linux";};
                     }
+                    modules/desktop
                 ];
             };
         };

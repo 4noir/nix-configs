@@ -2,9 +2,9 @@
 
 {
   imports = [
+    ../../modules/desktop/home.nix
     ../shared
     ../shared/optional/programs/vscode.nix
-    ../shared/graphical
     ../shared/optional/programs/alacritty.nix
   ];
   # Home Manager needs a bit of information about you and the

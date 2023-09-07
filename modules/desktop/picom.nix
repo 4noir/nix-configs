@@ -2,7 +2,7 @@
     services.picom = {
         enable = true;
         activeOpacity = 0.85;
-        inactiveOpacity = 0.85;
+        inactiveOpacity = 0.75;
         backend = "glx";
         fade = true;
         fadeSteps = [

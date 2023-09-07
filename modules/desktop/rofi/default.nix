@@ -7,7 +7,7 @@
             font =  "Iosevka 12";
             show-icons =  true;
             icon-theme =  "Paper Mono";
-            terminal =  "st";
+            terminal =  "alacritty";
             drun-display-format =  "{icon} {name}";
             location =  0;
             disable-history =  false;

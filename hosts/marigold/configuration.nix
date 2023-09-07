@@ -57,6 +57,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.startx.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
@@ -106,8 +107,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    killall
     vim
     wget
+    acpi
   ];
   programs.light.enable = true;
   services.actkbd = {

@@ -111,6 +111,7 @@
     vim
     wget
     acpi
+    pamixer
   ];
   programs.light.enable = true;
   services.actkbd = {

@@ -7,11 +7,16 @@
   };
   users.users.raph.packages = with pkgs; [
     dash
+    gnome.gnome-screenshot
+    maim
+    xclip
   ];
+  programs.slock.enable = true;
   
   systemd.user.services.initscript = {
+    enable = true;
     script = ''
-/home/raph/.wmscripts/run.sh
+/home/raph/.wmscripts/bar.sh
     ''; #FIXME
     wantedBy = [ "graphical.target" ];
     partOf = [ "graphical.target" ];

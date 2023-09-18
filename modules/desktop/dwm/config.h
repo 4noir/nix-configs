@@ -3,7 +3,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int default_border = 0;   /* to switch back to default border after dynamic border resizing via keybinds */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
@@ -40,7 +40,7 @@ static const int new_window_attach_on_end = 0; /*  1 means the new window will a
 static const char *fonts[]          = {"Iosevka:style:medium:size=12" ,"JetBrainsMono Nerd Font Mono:style:medium:size=19" };
 
 // theme
-#include "themes/onedark.h"
+#include "themes/dracula.h"
 
 static const char *colors[][3]      = {
     /*                     fg       bg      border */
@@ -55,6 +55,10 @@ static const char *colors[][3]      = {
     [SchemeTag3]       = { orange,  black,  black },
     [SchemeTag4]       = { green,   black,  black },
     [SchemeTag5]       = { pink,    black,  black },
+    [SchemeTag6]       = { yellow,  black,  black },
+    [SchemeTag7]       = { yellow,  black,  black },
+    [SchemeTag8]       = { white,  black,  black },
+    [SchemeTag9]       = { black,  black,  black },
     [SchemeLayout]     = { green,   black,  black },
     [SchemeBtnPrev]    = { green,   black,  black },
     [SchemeBtnNext]    = { yellow,  black,  black },
@@ -62,7 +66,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"", "", "", "", ""};
+// static char *tags[] = {"", "", "", "", ""};
+static char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 static const char* eww[] = { "eww", "open" , "eww", NULL };
 
@@ -71,9 +76,12 @@ static const Launcher launchers[] = {
     { eww,         "" },
 };
 
-static const int tagschemes[] = {
-    SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5
-};
+// static const int tagschemes[] = {
+//     SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5
+// };
+ static const int tagschemes[] = {
+     SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5, SchemeTag6, SchemeTag7, SchemeTag8, SchemeTag9
+ };
 
 static const unsigned int ulinepad      = 5; /* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke   = 2; /* thickness / height of the underline */
@@ -149,7 +157,7 @@ static const Key keys[] = {
     {MODKEY,                            XK_u,       spawn,
         SHCMD("maim --select | xclip -selection clipboard -t image/png")},
 
-    { MODKEY,                           XK_c,       spawn,          SHCMD("rofi -show drun") },
+    { MODKEY,                           XK_p,       spawn,          SHCMD("rofi -show drun") },
     { MODKEY,                           XK_Return,  spawn,            SHCMD("alacritty")},
 
     // toggle stuff
@@ -230,10 +238,10 @@ static const Key keys[] = {
     { MODKEY|ControlMask,               XK_q,       spawn,        SHCMD("killall bar.sh dwm") },
 
     // kill window
-    { MODKEY,                           XK_q,       killclient,     {0} },
+    { MODKEY|ShiftMask,                           XK_q,       killclient,     {0} },
 
     // restart
-    { MODKEY|ShiftMask,                 XK_r,       restart,           {0} },
+    // { MODKEY|ShiftMask,                 XK_r,       restart,           {0} },
 
     // hide & restore windows
     { MODKEY,                           XK_e,       hidewin,        {0} },
@@ -275,8 +283,8 @@ static const Button buttons[] = {
     { ClkClientWin,         MODKEY,         Button1,        moveorplace,    {.i = 0} },
     { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
     { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-    { ClkClientWin,         ControlMask,    Button1,        dragmfact,      {0} },
-    { ClkClientWin,         ControlMask,    Button3,        dragcfact,      {0} },
+    //{ ClkClientWin,         ControlMask,    Button1,        dragmfact,      {0} },
+    //{ ClkClientWin,         ControlMask,    Button3,        dragcfact,      {0} },
     { ClkTagBar,            0,              Button1,        view,           {0} },
     { ClkTagBar,            0,              Button3,        toggleview,     {0} },
     { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },

@@ -1,4 +1,4 @@
-@theme "everblush"
+@theme "dracula"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;

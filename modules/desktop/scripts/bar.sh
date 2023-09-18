@@ -6,7 +6,7 @@
 interval=0
 
 # load colors
-. ~/.wmscripts/bar_themes/onedark
+. ~/.wmscripts/bar_themes/dracula
 
 cpu() {
   cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)

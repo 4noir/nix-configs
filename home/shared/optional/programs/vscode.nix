@@ -14,6 +14,7 @@
       bbenoist.nix
       vscodevim.vim
       pkief.material-product-icons
+      rust-lang.rust-analyzer
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "vscode-jest";

@@ -67,6 +67,7 @@
                         home-manager.extraSpecialArgs = {system = "x86_64-linux";};
                     }
                     modules/desktop
+                    modules/gayming
                 ];
             };
         };

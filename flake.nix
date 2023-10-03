@@ -68,6 +68,7 @@
                     }
                     modules/desktop
                     modules/gayming
+                    modules/music
                 ];
             };
         };

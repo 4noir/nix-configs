@@ -96,7 +96,7 @@
   users.users.raph = {
     isNormalUser = true;
     description = "Raphael Leroy";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "vboxusers" ];
     packages = with pkgs; [
       firefox
       slack
@@ -136,7 +136,12 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
+  virtualisation.virtualbox = {
+    host.enable = true;
+    guest.enable = true;
+    guest.x11 = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -15,8 +15,11 @@
             "90:class_g = 'eww-eww'"
             "100:class_g = 'discord'"
             "100:class_g = 'dwm'"
-            "100:class_g = 'com.bitwig.BitwigStudio'"
+            "100:class_g *= 'bitwig'"
+            "100:class_g *= 'Bitwig'"
+            "100:class_g = 'VirtualBox Machine'"
             "100:window_type = 'desktop'"
+            # "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
         ];
         shadow = false;
         vSync = true;
@@ -25,6 +28,8 @@
             rounded-corners-exclude = [
                 "class_g = 'Rofi'"
                 "window_type = 'desktop'"
+		"class_g = 'com.bitwig.BitwigStudio'"
+		"class_g = 'com.bitwig.bitwigstudio'"
                 # "class_g = 'dwm'"
             ];
             blur-method = "dual_kawase";
@@ -36,6 +41,7 @@
               "class_g = 'firefox'"
               "class_g = 'dwm'"
               "class_g = 'com.bitwig.BitwigStudio'"
+              "class_g = 'com.bitwig.bitwigstudio'"
               "_GTK_FRAME_EXTENTS@:c"
             ];
 

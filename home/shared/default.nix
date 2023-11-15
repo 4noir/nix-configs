@@ -13,5 +13,6 @@
     btop
     neovim
     bat
+    ffmpeg
   ];
 }

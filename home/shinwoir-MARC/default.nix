@@ -3,8 +3,8 @@
 {
   imports = [
     ../shared/default.nix
-    ../shared/optional/programs/vscode.nix
-    ../shared/optional/programs/alacritty.nix
+    ../optional/vscode.nix
+    ../optional/alacritty.nix
     ../../hm-modules/yubikey.nix
   ];
   # Home Manager needs a bit of information about you and the

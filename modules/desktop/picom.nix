@@ -24,14 +24,14 @@
         shadow = false;
         vSync = true;
         settings = {
-            corner-radius = 20;
-            rounded-corners-exclude = [
-                "class_g = 'Rofi'"
-                "window_type = 'desktop'"
-		"class_g = 'com.bitwig.BitwigStudio'"
-		"class_g = 'com.bitwig.bitwigstudio'"
-                # "class_g = 'dwm'"
-            ];
+            corner-radius = 0;
+            # rounded-corners-exclude = [
+            #     "class_g = 'Rofi'"
+            #     "window_type = 'desktop'"
+		    #     "class_g = 'com.bitwig.BitwigStudio'"
+		    #     "class_g = 'com.bitwig.bitwigstudio'"
+            #     # "class_g = 'dwm'"
+            # ];
             blur-method = "dual_kawase";
             blur-strength = 3;
             blur-background = true;

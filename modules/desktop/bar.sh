@@ -6,7 +6,7 @@
 interval=0
 
 # load colors
-. ~/.wmscripts/bar_themes/dracula
+. ~/.dwm_resources/bar_themes/kanagawa
 
 cpu() {
   cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)

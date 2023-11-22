@@ -21,7 +21,6 @@
         recursive = true;
         source = ./themes;
         target = ".config/rofi/themes";
-     
     };
 
 }

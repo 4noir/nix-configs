@@ -5,7 +5,7 @@
     ../shared
     ../optional/vscode.nix
     ../shared/graphical
-    ../optional/alacritty.nix
+    ../optional/alacritty
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

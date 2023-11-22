@@ -5,7 +5,8 @@
     ../../modules/desktop/home.nix
     ../shared
     ../optional/vscode.nix
-    ../optional/alacritty.nix
+    ../optional/alacritty
+    ../optional/neovim
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

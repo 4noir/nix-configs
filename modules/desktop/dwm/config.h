@@ -40,7 +40,7 @@ static const int new_window_attach_on_end = 0; /*  1 means the new window will a
 static const char *fonts[]          = {"Iosevka:style:medium:size=12" ,"JetBrainsMono Nerd Font Mono:style:medium:size=19" };
 
 // theme
-#include "themes/dracula.h"
+#include "themes/kanagawa.h"
 
 static const char *colors[][3]      = {
     /*                     fg       bg      border */
@@ -56,9 +56,9 @@ static const char *colors[][3]      = {
     [SchemeTag4]       = { green,   black,  black },
     [SchemeTag5]       = { pink,    black,  black },
     [SchemeTag6]       = { yellow,  black,  black },
-    [SchemeTag7]       = { yellow,  black,  black },
+    [SchemeTag7]       = { orange2,  black,  black },
     [SchemeTag8]       = { white,  black,  black },
-    [SchemeTag9]       = { black,  black,  black },
+    [SchemeTag9]       = { blue2,  black,  black },
     [SchemeLayout]     = { green,   black,  black },
     [SchemeBtnPrev]    = { green,   black,  black },
     [SchemeBtnNext]    = { yellow,  black,  black },
@@ -69,12 +69,11 @@ static const char *colors[][3]      = {
 // static char *tags[] = {"", "", "", "", ""};
 static char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
-static const char* eww[] = { "eww", "open" , "eww", NULL };
+// static const char* eww[] = { "eww", "open" , "eww", NULL };
 
-static const Launcher launchers[] = {
-    /* command     name to display */
+static const Launcher launchers[0]; /* = {
     { eww,         "" },
-};
+}; */
 
 // static const int tagschemes[] = {
 //     SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5

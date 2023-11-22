@@ -11,7 +11,6 @@
   
   home.packages = with pkgs; [
     btop
-    neovim
     bat
     ffmpeg
   ];

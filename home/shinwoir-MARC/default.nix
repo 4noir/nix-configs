@@ -4,7 +4,7 @@
   imports = [
     ../shared/default.nix
     ../optional/vscode.nix
-    ../optional/alacritty.nix
+    ../optional/alacritty
     ../../hm-modules/yubikey.nix
   ];
   # Home Manager needs a bit of information about you and the

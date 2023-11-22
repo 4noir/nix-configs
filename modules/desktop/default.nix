@@ -12,13 +12,9 @@
     xclip
   ];
   programs.slock.enable = true;
-  
-  systemd.user.services.initscript = {
+  systemd.user.services.bar_script = {
     enable = true;
-    script = ''
-/home/raph/.wmscripts/bar.sh
-    ''; #FIXME
-    wantedBy = [ "graphical.target" ];
-    partOf = [ "graphical.target" ];
+    script = builtins.readFile ./bar.sh;
+    wantedBy = [ "default.target" ];
   };
 } 

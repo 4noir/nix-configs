@@ -1,12 +1,19 @@
-{ lib, config, pkgs, system, ... }:
+{ lib, config, pkgs, system,  ... }:
 
 {
   options = {
     security.yubikey.enable = lib.mkEnableOption "yubikey";
+    security.yubikey.github_username = lib.mkOption {
+      type = with lib.types; uniq string;
+      description = "github username to fetch public gpg key from";
+    };
+    security.yubikey.key_hash = lib.mkOption {
+      type = with lib.types; uniq string;
+      description = "sha256 hash of the public gpg key file";
+    };
   };
 
   config = lib.mkIf config.security.yubikey.enable {
-
     programs.zsh.initExtra = ''
       gpg-connect-agent /bye
       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
@@ -16,34 +23,11 @@
     programs.gpg = {
       enable = true;
       publicKeys =
-        [{
-          text = ''-----BEGIN PGP PUBLIC KEY BLOCK-----
-
-mDMEZAohcxYJKwYBBAHaRw8BAQdAu+n/gKfKbjWBiWJ6ZJEyDgQ57wH3yxLYg/ex
-khTKahC0JlJhcGhhZWwgTGVyb3kgPHJhcGhhZWwubGVyb3lAZXBpdGEuZnI+iJEE
-ExYKADkCGwEECwkIBwQVCgkIBRYCAwEAAh4BAheAFiEEKeHlmz4xJc3bNQtgNu6L
-BPS4zWUFAmQKIfECGQEACgkQNu6LBPS4zWUhIgEAuaUxiwlv+3/iCmmE5Zi/LmCF
-wjU+ptDFaxSHm4K9GMsBAKYS5IqPvUjCV2ZD8giZMTkpuG710q/Ms5PQAAQW/f4E
-tCVSYXBoYWVsIExlcm95IDxyLndhbmdsZXJveUBnbWFpbC5jb20+iI4EExYKADYW
-IQQp4eWbPjElzds1C2A27osE9LjNZQUCZAohswIbAQQLCQgHBBUKCQgFFgIDAQAC
-HgECF4AACgkQNu6LBPS4zWUcFQD/cfiCOsPzap7bA4dqs7LZGxOQnhn6Cj+aVsXV
-lYlVGysBALaT9ba8uiFZdwBXzLk2finJjWtthCyvqGqbvdlcYNcOuDMEZAoh/xYJ
-KwYBBAHaRw8BAQdAz+LnvK2qvJAxLwyI2mcLfUf4PcJ6iEOMpGirClt20SSI9QQY
-FgoAJhYhBCnh5Zs+MSXN2zULYDbuiwT0uM1lBQJkCiH/AhsCBQkB4TOAAIEJEDbu
-iwT0uM1ldiAEGRYKAB0WIQSL06RMXwXYeuS8A6tH6DmkJULuIwUCZAoh/wAKCRBH
-6DmkJULuI4aZAPoCIonqKm04uAAt0k66Vqf+FSqog4or9ANHCnutSxpuUgD9EvMV
-9yed9G6pGunDF62PNaawpE1pxUWJ2esoxvPPcAZd2wD+KAp86gFSHDLx8qUC9btn
-Y2qlRAvuLZqD8lZw8AsForcA/3a93fTBLenagMSdb2Q1HmqS8+rrt8jzkprquzH4
-tvIKuDgEZAoiERIKKwYBBAGXVQEFAQEHQDHPAdZJs5VpVLmicYGpcFp/T5MZGoIm
-UMxrSi01sylBAwEIB4h+BBgWCgAmFiEEKeHlmz4xJc3bNQtgNu6LBPS4zWUFAmQK
-IhECGwwFCQHhM4AACgkQNu6LBPS4zWXvTAEAu0sL+RP8RavtLDC7L4AbSTRcfZac
-4vFJftTrqsEWkUEA/1FiKE5WKEaX6qQyst5yKHEGS7EB2thvd8mQL6SjzzYPuDME
-ZAoiHxYJKwYBBAHaRw8BAQdAhUB6lII1KDSl3pGLcFda5KdM8AMGxClgM1IPsho+
-nhaIfgQYFgoAJhYhBCnh5Zs+MSXN2zULYDbuiwT0uM1lBQJkCiIfAhsgBQkB4TOA
-AAoJEDbuiwT0uM1lRc4A+QGh6rkAktxFo6qjjFmb9RLCuVP5eHF2FNhkPts5zwsU
-AQDCBFBUMQbPgqXZKp8P9dAas3FSy/dqo9KR6XFhEE5sBg==
-=k78o
------END PGP PUBLIC KEY BLOCK-----'';
+          [{
+          text = builtins.readFile (pkgs.fetchurl {
+            url = "https://github.com/${config.security.yubikey.github_username}.gpg"; 
+            hash = "${config.security.yubikey.key_hash}";
+          });
           trust = 5;
         }];
       settings = {

@@ -20,7 +20,6 @@
       set relativenumber
       set noshowmode
       set encoding=UTF-8
-      set laststatus=3
     '';
     };
     

@@ -13,7 +13,11 @@
   home.username = "raph";
   home.homeDirectory = "/home/raph";
 
-  security.yubikey.enable = true;
+  security.yubikey = {
+    enable = true;
+    github_username = "4noir";
+    key_hash = "sha256-rBX5pTCNO5SZJLyYuNqc0FhjJ1JANkqcu/MHld6YrLo=";
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
